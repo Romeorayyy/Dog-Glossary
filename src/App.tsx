@@ -21,7 +21,7 @@ function App() {
         `https://api.api-ninjas.com/v1/dogs?name=${encodeURIComponent(query)}`,
         {
           headers: {
-            'X-Api-Key': '27oeBKlfFoLFIhagtrpiAQ==nk1AT4A6yb2oNs7B',
+            'X-Api-Key': import.meta.env.VITE_API_NINJA_KEY,
           },
         }
       );
@@ -30,7 +30,7 @@ function App() {
 
       const data = await response.json();
       setDogs(data);
-    } catch (err) {
+    } catch (error) {
       setError('Failed to fetch dog breeds. Please try again.');
       setDogs([]);
     } finally {
